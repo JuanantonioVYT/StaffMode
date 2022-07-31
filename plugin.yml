@@ -8,3 +8,9 @@ permissions:
  staffmode.use.cmd:
   description: Always use this command
   default: op
+ staffchat.use.cmd:
+  description: Always use this command
+  default: op
+ staffchat.use.view:
+  description: Always view private messages
+  default: op

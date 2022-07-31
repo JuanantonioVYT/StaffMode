@@ -17,6 +17,8 @@ class StaffCommand extends Command {
 
     public function __construct(StaffMode $plugin) {
         parent::__construct("staff", "toggle staffmode on or off");
+        parent::setPermission("staffmode.use.cmd");
+        parent::setAliases(["mod", "staffmode", "sm"]);
         $this->plugin = $plugin;
     }
 
@@ -46,7 +48,7 @@ class StaffCommand extends Command {
                 $sender->setAllowFlight(true);
             } else if ($config->get("allow-title-staffmode") === true) {
                 $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-enabled")));
-            } else if ($config->get("allow-message-enable-staffmode") === true) {
+            } else if ($config->get("allow-message-staffmode") === true) {
                 $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-enabled")));
             }
 
@@ -71,7 +73,7 @@ class StaffCommand extends Command {
             $sender->getEffects()->add($this->plugin->backup_effects[$sender]);
 
             if ($config->get("allow-title-staffmode") === true) {
-                $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-disable")));
+                $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-disabled")));
             } else if ($config->get("allow-message-staffmode") === true) {
                 $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-disabled")));
             }
@@ -80,5 +82,6 @@ class StaffCommand extends Command {
                 $players->showPlayer($sender);
             }
         }
+        return;
     }
 }

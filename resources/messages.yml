@@ -1,0 +1,13 @@
+# StaffMode ON
+
+staffmode-title-enabled: "&c[StaffMode]\n&7Enable"
+staffmode-message-enabled: "&c[StaffMode] &7You are now in staffmode"
+
+# StaffMode OFF
+
+staffmode-title-disabled: "&c[StaffMode]\n&7Disable"
+staffmode-message-disabled: "&c[StaffMode] &7You are not in staffmode"
+
+# StaffChat Message, usage {player} and {message}
+
+staffchat-send-message: "&9[StaffChat] &f{player} &8> &7{msg}"

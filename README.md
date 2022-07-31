@@ -7,6 +7,13 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 
 # Features
 
-- Features:
+  - [X] Added command /staff, aliases (/mod, /sm & /staffmode)
+  - [X] Added command /sc, aliases (/staffchat)
 
-  - [X] Added command /staff
+# Permissions
+
+| Permission | Aliases |
+| --- | --- |
+| staffmode.use.cmd | /mod, /staffmode, /sm |
+| staffchat.use.cmd | /staffchat |
+| staffchat.use.view | (Only view messages) |

@@ -8,6 +8,7 @@ use pocketmine\event\Listener;
 use Kurth\utils\KitManager;
 
 use Kurth\commands\StaffCommand;
+use Kurth\commands\ChatCommand;
 
 class StaffMode extends PluginBase implements Listener {
 
@@ -38,6 +39,7 @@ class StaffMode extends PluginBase implements Listener {
 
         $command = $this->getServer()->getCommandMap();
         $command->register("staff", new StaffCommand($this));
+        $command->register("sc", new ChatCommand($this));
 
         $this->saveResource("config.yml");
         $this->saveResource("messages.yml");
