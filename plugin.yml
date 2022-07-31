@@ -1,0 +1,10 @@
+name: StaffMode
+main: Kurth\StaffMode
+api: [4.0.0]
+version: 1.0.0
+author: iKurth
+website: https://github.com/iKurth
+permissions:
+ staffmode.use.cmd:
+  description: Always use this command
+  default: op
