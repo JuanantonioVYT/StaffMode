@@ -44,7 +44,7 @@ class StaffCommand extends Command {
                 $sender->setGamemode(GameMode::CREATIVE());
             } else if ($config->get("allow-flight-in-staffmode") === true) {
                 $sender->setAllowFlight(true);
-            } else if ($config->get("allow-title-enable-staffmode") === true) {
+            } else if ($config->get("allow-title-staffmode") === true) {
                 $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-enabled")));
             } else if ($config->get("allow-message-enable-staffmode") === true) {
                 $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-enabled")));
@@ -56,6 +56,29 @@ class StaffCommand extends Command {
             $sender->extinguish();
 
             StaffMode::getKitManager()->getKitStaff($sender);
+        } else if (in_array ($sender->getName(), $this->plugin->staffmode)) {
+            $sender->getInventory()->clearAll();
+            $sender->getArmorInventory()->clearAll();
+            $sender->getEffects()->clear();
+            $sender->extinguish();
+            $sender->setFlying(false);
+            $sender->setAllowFlight(false);
+
+            unset($this->plugin->staffmode[array_search($sender->getName(), $this->plugin->staffmode)]);
+            $sender->getInventory()->setContents($this->plugin->backup_items[$sender->getName()]);
+            $sender->getInventory()->setContents($this->plugin->backup_armor[$sender->getName()]);
+            $sender->setGamemode($this->plugin->backup_gamemode[$sender->getName()]);
+            $sender->getEffects()->add($this->plugin->backup_effects[$sender]);
+
+            if ($config->get("allow-title-staffmode") === true) {
+                $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-disable")));
+            } else if ($config->get("allow-message-staffmode") === true) {
+                $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-disabled")));
+            }
+
+            foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
+                $players->showPlayer($sender);
+            }
         }
     }
 }
