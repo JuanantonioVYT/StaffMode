@@ -16,7 +16,7 @@ class UtilsManager {
         }
 
         return match($data["DeviceOS"]) {
-            DeviceOS::ANDROID => "Android", DeviceOS::IOS => "iOS", DeviceOS::XBOX => "Xbox", DeviceOS::PLAYSTATION => "PlayStation", DeviceOS::WINDOWS_10 => "Windows 10", DeviceOS::WIN32 => "Windows 32", DeviceOS::NINTENDO => "Nintendo", DeviceOS::UNKNOWN => "Unknown"
+            DeviceOS::ANDROID => "Android", DeviceOS::IOS => "iOS", DeviceOS::OSX => "Mac", DeviceOS::XBOX => "Xbox", DeviceOS::PLAYSTATION => "PlayStation", DeviceOS::WINDOWS_10 => "Windows 10", DeviceOS::WIN32 => "Windows 32", DeviceOS::NINTENDO => "Nintendo", default => "Unknown"
         };
     }
 }
