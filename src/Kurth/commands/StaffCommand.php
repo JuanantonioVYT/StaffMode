@@ -61,6 +61,7 @@ class StaffCommand extends Command {
             $sender->getArmorInventory()->clearAll();
             $sender->getEffects()->clear();
             $sender->extinguish();
+            $sender->setSilent(true);
 
             StaffMode::getKitManager()->getKitStaff($sender);
         } else if (in_array ($sender->getName(), $this->plugin->staffmode)) {
@@ -70,6 +71,7 @@ class StaffCommand extends Command {
             $sender->extinguish();
             $sender->setFlying(false);
             $sender->setAllowFlight(false);
+            $sender->setSilent(false);
 
             unset($this->plugin->staffmode[array_search($sender->getName(), $this->plugin->staffmode)]);
             $sender->getInventory()->setContents($this->plugin->backup_items[$sender->getName()]);

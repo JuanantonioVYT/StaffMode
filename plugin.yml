@@ -5,6 +5,8 @@ version: 1.0.0
 author: iKurth
 website: https://github.com/iKurth
 permissions:
+ staff.use.join:
+  description: Always broadcast message to join
  staffmode.use.cmd:
   description: Always use this command
   default: op
