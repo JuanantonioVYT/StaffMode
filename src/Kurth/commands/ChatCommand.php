@@ -39,10 +39,9 @@ class ChatCommand extends Command {
         
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
         if (isset ($args[0])) {
-            $message = implode(" ", $args);
             foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
                 if ($players->hasPermission("staffchat.use.view")) {
-                    $players->sendMessage(TextFormat::colorize(str_replace(["{player}", "{message}"], [$sender->getName(), $message], $messages->get("staffchat-send-message"))));
+                    $players->sendMessage(TextFormat::colorize(str_replace(["{staff}", "{message}"], [$sender->getName(), implode(" ", $args)], $messages->get("staffchat-send-message"))));
                 }
             }
             return;

@@ -57,9 +57,13 @@ class FreezeCommand extends Command {
 
                 if ($config->get("allow-title-freeze") === true) {
                     $player->sendTitle(TextFormat::colorize($messages->get("freeze-title")));
-                } else if ($config->get("allow-message-freeze") === true) {
+                }
+                
+                if ($config->get("allow-message-freeze") === true) {
                     $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("freeze-message"))));
-                } else if ($config->get("allows-broadcast-freeze") === true) {
+                }
+                
+                if ($config->get("allows-broadcast-freeze") === true) {
                     StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-freeze"))));
                 }
             } else if (in_array ($player->getName(), $this->plugin->freeze)) {
@@ -67,12 +71,17 @@ class FreezeCommand extends Command {
 
                 if ($config->get("allow-title-freeze") === true) {
                     $player->sendTitle(TextFormat::colorize($messages->get("unfreeze-title")));
-                } else if ($config->get("allow-message-freeze") === true) {
+                }
+                
+                if ($config->get("allow-message-freeze") === true) {
                     $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("unfreeze-message"))));
-                } else if ($config->get("allows-broadcast-freeze") === true) {
+                }
+                
+                if ($config->get("allows-broadcast-freeze") === true) {
                     StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-unfreeze"))));
                 }
             }
         }
+        return;
     }
 }

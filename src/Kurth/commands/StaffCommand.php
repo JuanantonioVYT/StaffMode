@@ -40,15 +40,20 @@ class StaffCommand extends Command {
             $this->plugin->backup_items[$sender->getName()] = $sender->getInventory()->getContents();
             $this->plugin->backup_armor[$sender->getName()] = $sender->getArmorInventory()->getContents();
             $this->plugin->backup_gamemode[$sender->getName()] = $sender->getGamemode();
-            $this->plugin->backup_effects[$sender->getName()] = $sender->getEffects();
 
             if ($config->get("change-gamemode-in-staffmode") === true) {
                 $sender->setGamemode(GameMode::CREATIVE());
-            } else if ($config->get("allow-flight-in-staffmode") === true) {
+            }
+            
+            if ($config->get("allow-flight-in-staffmode") === true) {
                 $sender->setAllowFlight(true);
-            } else if ($config->get("allow-title-staffmode") === true) {
+            }
+            
+            if ($config->get("allow-title-staffmode") === true) {
                 $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-enabled")));
-            } else if ($config->get("allow-message-staffmode") === true) {
+            }
+            
+            if ($config->get("allow-message-staffmode") === true) {
                 $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-enabled")));
             }
 
@@ -70,11 +75,12 @@ class StaffCommand extends Command {
             $sender->getInventory()->setContents($this->plugin->backup_items[$sender->getName()]);
             $sender->getInventory()->setContents($this->plugin->backup_armor[$sender->getName()]);
             $sender->setGamemode($this->plugin->backup_gamemode[$sender->getName()]);
-            $sender->getEffects()->add($this->plugin->backup_effects[$sender]);
 
             if ($config->get("allow-title-staffmode") === true) {
                 $sender->sendTitle(TextFormat::colorize($messages->get("staffmode-title-disabled")));
-            } else if ($config->get("allow-message-staffmode") === true) {
+            }
+            
+            if ($config->get("allow-message-staffmode") === true) {
                 $sender->sendMessage(TextFormat::colorize($messages->get("staffmode-message-disabled")));
             }
 

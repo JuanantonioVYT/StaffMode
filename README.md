@@ -17,3 +17,4 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 | staffmode.use.cmd | /mod, /staffmode, /sm |
 | staffchat.use.cmd | /staffchat |
 | staffchat.use.view | (Only view messages) |
+| freeze.use.cmd | (Only alias) |

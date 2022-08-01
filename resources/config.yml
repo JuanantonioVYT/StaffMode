@@ -1,4 +1,13 @@
+# StaffMode Config
+
 change-gamemode-in-staffmode: true
 allow-flight-in-staffmode: true
 allow-title-staffmode: true
 allow-message-staffmode: true
+
+# Freeze Config
+
+not-freeze-yourself: true
+allow-title-freeze: true
+allow-message-freeze: true
+allows-broadcast-freeze: true

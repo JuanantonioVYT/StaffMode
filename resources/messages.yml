@@ -10,14 +10,9 @@ staffmode-message-disabled: "&c[StaffMode] &7You are not in staffmode"
 
 # StaffChat Message, usage {player} and {message}
 
-staffchat-send-message: "&9[StaffChat] &f{player} &8> &7{msg}"
+staffchat-send-message: "&9[StaffChat] &f{staff} &8> &7{message}"
 
-# Freeze Config & Message, usage {player} & {staff}
-
-not-freeze-yourself: true
-allow-title-freeze: true
-allow-message-freeze: true
-allows-broadcast-freeze: true
+# Freeze Message, usage {player} & {staff}
 
 freeze-title: "&aYou are now frozen"
 freeze-message: "&a[Freeze] &f{player} &7you were frozen by &f{staff}"

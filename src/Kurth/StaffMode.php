@@ -17,7 +17,6 @@ class StaffMode extends PluginBase implements Listener {
     public $backup_items = [];
     public $backup_armor = [];
     public $backup_gamemode = [];
-    public $backup_effects = [];
 
     public $freeze = [];
 
@@ -29,6 +28,9 @@ class StaffMode extends PluginBase implements Listener {
 
     public function onLoad() : void {
         self::$instance = $this;
+
+        $this->saveResource("config.yml");
+        $this->saveResource("messages.yml");
     }
 
     public function onEnable() : void {
@@ -44,9 +46,6 @@ class StaffMode extends PluginBase implements Listener {
         $command->register("staff", new StaffCommand($this));
         $command->register("sc", new ChatCommand($this));
         $command->register("freeze", new FreezeCommand($this));
-
-        $this->saveResource("config.yml");
-        $this->saveResource("messages.yml");
     }
 
     public static function getKitManager() : KitManager {
