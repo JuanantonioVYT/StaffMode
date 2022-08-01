@@ -39,8 +39,8 @@ class KitManager {
         $player->getInventory()->setItem(1, $randomtp);
         $player->getInventory()->setItem(2, $pinfo);
         $player->getInventory()->setItem(3, $kick);
-        $player->getInventory()->setItem(5, $vanish);
-        $player->getInventory()->setItem(6, $freeze);
+        $player->getInventory()->setItem(4, $vanish);
+        $player->getInventory()->setItem(5, $freeze);
     }
 
     public function getKitVanish(Player $player) {
@@ -72,7 +72,7 @@ class KitManager {
         $player->getInventory()->setItem(1, $randomtp);
         $player->getInventory()->setItem(2, $pinfo);
         $player->getInventory()->setItem(3, $kick);
-        $player->getInventory()->setItem(5, $vanish);
-        $player->getInventory()->setItem(6, $freeze);
+        $player->getInventory()->setItem(4, $vanish);
+        $player->getInventory()->setItem(5, $freeze);
     }
 }

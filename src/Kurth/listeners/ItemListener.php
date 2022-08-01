@@ -105,10 +105,12 @@ class ItemListener implements Listener {
             $item = $damager->getInventory()->getItemInHand();
             if ($item->getName() === TextFormat::colorize("&6Player Information")) {
                 $damager->sendMessage(TextFormat::colorize(str_replace(["{player}", "{ping}", "{health}", "{address}", "{platform}"], [$entity->getName(), $entity->getNetworkSession()->getPing(), (int)$entity->getHealth(), $entity->getNetworkSession()->getIp(), StaffMode::getInstance()->getUtilsManager()->getPlayerPlatform($entity)], $messages->get("pinfo-message"))));
+                $event->cancel();
             }
 
             if ($item->getName() === TextFormat::colorize("&cKick Player(s)")) {
                 $entity->kick(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$entity->getName(), $damager->getName()], $messages->get("kicked-player"))));
+                $event->cancel();
             }
 
             if ($item->getName() === TextFormat::colorize("&bFreeze Player(s)")) {
@@ -118,12 +120,14 @@ class ItemListener implements Listener {
                     $entity->sendTitle(TextFormat::colorize($messages->get("freeze-title")));
                     $entity->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$entity->getName(), $damager->getName()], $messages->get("freeze-message"))));
                     StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$entity->getName(), $damager->getName()], $messages->get("server-broadcast-freeze"))));
+                    $event->cancel();
                 } else if (in_array ($entity->getName(), $this->plugin->freeze)) {
                     unset($this->plugin->freeze[array_search($entity->getName(), $this->plugin->freeze)]);
 
                     $entity->sendTitle(TextFormat::colorize($messages->get("unfreeze-title")));
                     $entity->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$entity->getName(), $damager->getName()], $messages->get("unfreeze-message"))));
                     StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$entity->getName(), $damager->getName()], $messages->get("server-broadcast-unfreeze"))));
+                    $event->cancel();
                 }
             }
         }

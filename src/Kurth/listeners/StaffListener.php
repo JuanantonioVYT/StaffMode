@@ -34,13 +34,10 @@ class StaffListener implements Listener {
 
     public function onJoin(PlayerJoinEvent $event) : void {
         $player = $event->getPlayer();
-        $config = new Config(StaffMode::getInstance()->getDataFolder()."config.yml", Config::YAML);
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
-        if ($config->get("allow-join-broadcast-staff") === true) {
-            foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
-                if ($players->hasPermission("staff.use.join")) {
-                    $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-join"))));
-                }
+        foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
+            if ($players->hasPermission("staff.use.join")) {
+                $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-join"))));
             }
         }
         return;
@@ -48,13 +45,10 @@ class StaffListener implements Listener {
 
     public function onQuit(PlayerQuitEvent $event) : void {
         $player = $event->getPlayer();
-        $config = new Config(StaffMode::getInstance()->getDataFolder()."config.yml", Config::YAML);
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
-        if ($config->get("allow-quit-broadcast-staff") === true) {
-            foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
-                if ($players->hasPermission("staff.use.join")) {
-                    $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-quit"))));
-                }
+        foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
+            if ($players->hasPermission("staff.use.join")) {
+                $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-quit"))));
             }
         }
 
@@ -153,24 +147,21 @@ class StaffListener implements Listener {
     }
 
     public function onDamage(EntityDamageEvent $event) : void {
-        $entity = $event->getEntity();
-        if ($entity instanceof Player) {
-            if (in_array ($entity->getName(), $this->plugin->staffmode)) {
-                $event->cancel();
-            }
+        if(!($event instanceof EntityDamageByEntityEvent)) {
+            return;
         }
-        return;
-    }
-
-    public function onEntity(EntityDamageByEntityEvent $event) : void {
         $entity = $event->getEntity();
         $damager = $event->getDamager();
-        if ($damager != null) {
-            if ($entity instanceof Player and $damager instanceof Player) {
-                if (in_array ($damager->getName(), $this->plugin->staffmode)) {
-                    $event->cancel();
-                }
-            }
+        if(!($entity instanceof Player) || !($damager instanceof Player)) {
+            return;
+        }
+
+        if (in_array ($entity->getName(), $this->plugin->staffmode)) {
+            $event->cancel();
+        }
+
+        if (in_array ($damager->getName(), $this->plugin->staffmode)) {
+            $event->cancel();
         }
         return;
     }

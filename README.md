@@ -28,5 +28,4 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 
 # Support
 
-Join discord server, it belongs to my community dedicated to pocketmine, here you can ask your doubts, questions or anything that helps the plugin support
-Link: [discord server](https://discord.gg/yMPxfpUZWM).
+Join discord server, it belongs to my community dedicated to pocketmine, here you can ask your doubts, questions or anything that helps the plugin support, link: [discordserver](https://discord.gg/yMPxfpUZWM).
