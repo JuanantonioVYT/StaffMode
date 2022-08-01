@@ -28,7 +28,7 @@ class PInfoCommand extends Command {
             return;
         }
 
-        if (!$sender->hasPermission("freeze.use.cmd")) {
+        if (!$sender->hasPermission("pinfo.use.cmd")) {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7You need permissions to access the options of this command"));
             return;
         }

@@ -19,3 +19,4 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 | staffchat.use.cmd | contains 1 aliases | /staffmode |
 | staffchat.use.view | contains 0 aliases | nothing |
 | freeze.use.cmd | contains 0 aliases | nothing |
+| pinfo.use.cmd | contains 1 aliases | /playerinfo |
