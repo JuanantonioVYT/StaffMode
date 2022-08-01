@@ -9,6 +9,7 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 
   - [X] Added command /staff, aliases (/mod, /sm & /staffmode)
   - [X] Added command /sc, aliases (/staffchat)
+  - [X] Added command /freeze, aliases (nothing)
 
 # Permissions
 

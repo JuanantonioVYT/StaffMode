@@ -21,3 +21,7 @@ server-broadcast-freeze: "&a[Freeze] &f{player} &7was frozen by the staff &f{sta
 unfreeze-title: "&cYou are not frozen"
 unfreeze-message: "&a[Freeze] &f{player} &7you were thawed by &f{staff}"
 server-broadcast-unfreeze: "&a[Freeze] &f{player} &7was thawed by the staff &f{staff}"
+
+# Player Information Message, usage {player} - {ping} - {health} - {address} - {platform}
+
+pinfo-message: "&e[PInfo] &f{player}\n&fPing: &a{ping}\n&fHealth: &c{health}\n&fAddress: &b{address}\n&fPlatform: &9{platform}"
