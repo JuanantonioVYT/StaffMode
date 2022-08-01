@@ -5,10 +5,11 @@ namespace Kurth;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 
-use Kurth\utils\KitManager;
-
 use Kurth\commands\StaffCommand;
 use Kurth\commands\ChatCommand;
+use Kurth\commands\FreezeCommand;
+
+use Kurth\utils\KitManager;
 
 class StaffMode extends PluginBase implements Listener {
 
@@ -17,6 +18,8 @@ class StaffMode extends PluginBase implements Listener {
     public $backup_armor = [];
     public $backup_gamemode = [];
     public $backup_effects = [];
+
+    public $freeze = [];
 
     private static $instance;
 
@@ -40,6 +43,7 @@ class StaffMode extends PluginBase implements Listener {
         $command = $this->getServer()->getCommandMap();
         $command->register("staff", new StaffCommand($this));
         $command->register("sc", new ChatCommand($this));
+        $command->register("freeze", new FreezeCommand($this));
 
         $this->saveResource("config.yml");
         $this->saveResource("messages.yml");

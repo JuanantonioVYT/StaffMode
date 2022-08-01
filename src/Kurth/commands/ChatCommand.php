@@ -36,8 +36,7 @@ class ChatCommand extends Command {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7Verify that the argument is placed correctly"));
             return;
         }
-
-        $config = new Config(StaffMode::getInstance()->getDataFolder()."config.yml", Config::YAML);
+        
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
         if (isset ($args[0])) {
             $message = implode(" ", $args);

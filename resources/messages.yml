@@ -11,3 +11,18 @@ staffmode-message-disabled: "&c[StaffMode] &7You are not in staffmode"
 # StaffChat Message, usage {player} and {message}
 
 staffchat-send-message: "&9[StaffChat] &f{player} &8> &7{msg}"
+
+# Freeze Config & Message, usage {player} & {staff}
+
+not-freeze-yourself: true
+allow-title-freeze: true
+allow-message-freeze: true
+allows-broadcast-freeze: true
+
+freeze-title: "&aYou are now frozen"
+freeze-message: "&a[Freeze] &f{player} &7you were frozen by &f{staff}"
+server-broadcast-freeze: "&a[Freeze] &f{player} &7was frozen by the staff &f{staff}"
+
+unfreeze-title: "&cYou are not frozen"
+unfreeze-message: "&a[Freeze] &f{player} &7you were thawed by &f{staff}"
+server-broadcast-unfreeze: "&a[Freeze] &f{player} &7was thawed by the staff &f{staff}"
