@@ -20,6 +20,7 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityItemPickupEvent;
 use pocketmine\event\entity\EntityCombustEvent;
+use pocketmine\event\inventory\InventoryTransactionEvent;
 
 use Kurth\StaffMode;
 
@@ -70,6 +71,9 @@ class StaffListener implements Listener {
             $player->getInventory()->setContents($this->plugin->backup_items[$player->getName()]);
             $player->getInventory()->setContents($this->plugin->backup_armor[$player->getName()]);
             $player->setGamemode($this->plugin->backup_gamemode[$player->getName()]);
+            foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
+                $players->showPlayer($player);
+            }
         }
         return;
     }
@@ -189,5 +193,14 @@ class StaffListener implements Listener {
             }
         }
         return;
+    }
+
+    public function onTransaction(InventoryTransactionEvent $event) : void {
+        $player = $event->getTransaction()->getSource();
+        if ($player instanceof Player) {
+            if (in_array ($player->getName(), $this->plugin->staffmode)) {
+                $event->cancel();
+            }
+        }
     }
 }

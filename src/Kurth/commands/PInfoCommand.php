@@ -45,10 +45,7 @@ class PInfoCommand extends Command {
         }
 
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
-        if (isset ($args[0])) {
-            $sender->sendMessage(TextFormat::colorize(str_replace(["{player}", "{ping}", "{health}", "{address}", "{platform}"], [$player->getName(), $player->getNetworkSession()->getPing(), (int)$player->getHealth(), $player->getNetworkSession()->getIp(), StaffMode::getInstance()->getUtilsManager()->getPlayerPlatform($player)], $messages->get("pinfo-message"))));
-            return;
-        }
+        $sender->sendMessage(TextFormat::colorize(str_replace(["{player}", "{ping}", "{health}", "{address}", "{platform}"], [$player->getName(), $player->getNetworkSession()->getPing(), (int)$player->getHealth(), $player->getNetworkSession()->getIp(), StaffMode::getInstance()->getUtilsManager()->getPlayerPlatform($player)], $messages->get("pinfo-message"))));
         return;
     }
 }

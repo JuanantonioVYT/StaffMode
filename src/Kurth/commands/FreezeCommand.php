@@ -50,36 +50,33 @@ class FreezeCommand extends Command {
                 return;
             }
         }
+        if (!in_array ($player->getName(), $this->plugin->freeze)) {
+            $this->plugin->freeze[] = $player->getName();
 
-        if (isset ($args[0])) {
-            if (!in_array ($player->getName(), $this->plugin->freeze)) {
-                $this->plugin->freeze[] = $player->getName();
+            if ($config->get("allow-title-freeze") === true) {
+                $player->sendTitle(TextFormat::colorize($messages->get("freeze-title")));
+            }
+                
+            if ($config->get("allow-message-freeze") === true) {
+                $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("freeze-message"))));
+            }
+                
+            if ($config->get("allows-broadcast-freeze") === true) {
+                StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-freeze"))));
+            }
+        } else if (in_array ($player->getName(), $this->plugin->freeze)) {
+            unset($this->plugin->freeze[array_search($player->getName(), $this->plugin->freeze)]);
 
-                if ($config->get("allow-title-freeze") === true) {
-                    $player->sendTitle(TextFormat::colorize($messages->get("freeze-title")));
-                }
+            if ($config->get("allow-title-freeze") === true) {
+                $player->sendTitle(TextFormat::colorize($messages->get("unfreeze-title")));
+            }
                 
-                if ($config->get("allow-message-freeze") === true) {
-                    $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("freeze-message"))));
-                }
+            if ($config->get("allow-message-freeze") === true) {
+                $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("unfreeze-message"))));
+            }
                 
-                if ($config->get("allows-broadcast-freeze") === true) {
-                    StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-freeze"))));
-                }
-            } else if (in_array ($player->getName(), $this->plugin->freeze)) {
-                unset($this->plugin->freeze[array_search($player->getName(), $this->plugin->freeze)]);
-
-                if ($config->get("allow-title-freeze") === true) {
-                    $player->sendTitle(TextFormat::colorize($messages->get("unfreeze-title")));
-                }
-                
-                if ($config->get("allow-message-freeze") === true) {
-                    $player->sendMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("unfreeze-message"))));
-                }
-                
-                if ($config->get("allows-broadcast-freeze") === true) {
-                    StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-unfreeze"))));
-                }
+            if ($config->get("allows-broadcast-freeze") === true) {
+                StaffMode::getInstance()->getServer()->broadcastMessage(TextFormat::colorize(str_replace(["{player}", "{staff}"], [$player->getName(), $sender->getName()], $messages->get("server-broadcast-unfreeze"))));
             }
         }
         return;

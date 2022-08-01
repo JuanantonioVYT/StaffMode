@@ -7,6 +7,7 @@ use pocketmine\event\Listener;
 
 use Kurth\listeners\PlayerListener;
 use Kurth\listeners\StaffListener;
+use Kurth\listeners\ItemListener;
 
 use Kurth\commands\StaffCommand;
 use Kurth\commands\ChatCommand;
@@ -41,13 +42,14 @@ class StaffMode extends PluginBase implements Listener {
     public function onEnable() : void {
         $logger = $this->getLogger();
         $logger->notice("StaffMode for PocketMine-API 4 make by iKurth");
-        $logger->notice("Download in: ");
+        $logger->notice("Download in: https://github.com/iKurth/StaffMode");
         $logger->notice("Subscribe to Kurth in YouTube");
 
         $plugin = $this->getServer()->getPluginManager();
         $plugin->registerEvents($this, $this);
         $plugin->registerEvents(new PlayerListener($this), $this);
         $plugin->registerEvents(new StaffListener($this), $this);
+        $plugin->registerEvents(new ItemListener($this), $this);
 
         $command = $this->getServer()->getCommandMap();
         $command->register("staff", new StaffCommand($this));

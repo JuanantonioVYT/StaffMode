@@ -32,3 +32,7 @@ freeze-message-leave: "&a[Freeze] &f{player} &7disconnect while frozen"
 # Player Information Message, usage {player} - {ping} - {health} - {address} - {platform}
 
 pinfo-message: "&e[PInfo] &f{player}\n&fPing: &a{ping}\n&fHealth: &c{health}\n&fAddress: &b{address}\n&fPlatform: &9{platform}"
+
+# Kick Message, usage {player} & {staff}
+
+kicked-player: "&c[Kick] &7You were kicked by the staff &f{player}"

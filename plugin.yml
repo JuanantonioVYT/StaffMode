@@ -19,3 +19,6 @@ permissions:
  freeze.use.cmd:
   description: Always use this command
   default: op
+ pinfo.use.cmd:
+  description: Always use this command
+  default: op
