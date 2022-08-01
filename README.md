@@ -1,3 +1,9 @@
+[![](https://poggit.pmmp.io/shield.state/iStaffMode)](https://poggit.pmmp.io/p/iStaffMode)
+<a href="https://poggit.pmmp.io/p/iStaffMode"><img src="https://poggit.pmmp.io/shield.state/iStaffMode"></a>
+
+[![](https://poggit.pmmp.io/shield.api/iStaffMode)](https://poggit.pmmp.io/p/iStaffMode)
+<a href="https://poggit.pmmp.io/p/iStaffMode"><img src="https://poggit.pmmp.io/shield.api/iStaffMode"></a>
+
 # StaffMode
 Dedicated plugin for PocketMine-API 4, this will help staff members to make players follow the rules to the letter
 
