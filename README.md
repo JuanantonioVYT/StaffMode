@@ -13,7 +13,7 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 # Permissions
 
 | Permission | Description | Aliases |
-| --- | --- |
+| --- | --- | --- |
 | staffmode.use.cmd | contains 3 aliases | /mod, /sm & /staffmode |
 | staffchat.use.cmd | contains 1 aliases | /staffmode |
 | staffchat.use.view | contains 0 aliases | nothing |
