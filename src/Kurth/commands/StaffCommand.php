@@ -75,7 +75,7 @@ class StaffCommand extends Command {
 
             unset($this->plugin->staffmode[array_search($sender->getName(), $this->plugin->staffmode)]);
             $sender->getInventory()->setContents($this->plugin->backup_items[$sender->getName()]);
-            $sender->getInventory()->setContents($this->plugin->backup_armor[$sender->getName()]);
+            $sender->getArmorInventory()->setContents($this->plugin->backup_armor[$sender->getName()]);
             $sender->setGamemode($this->plugin->backup_gamemode[$sender->getName()]);
 
             if ($config->get("allow-title-staffmode") === true) {
