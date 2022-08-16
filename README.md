@@ -26,12 +26,12 @@ This plugin is not dedicated to pvp servers, it was created for survival/faction
 
 | Permission | Description | Aliases |
 | --- | --- | --- |
-| staffmode.use.cmd | contains 3 aliases | /mod, /sm & /staffmode |
-| staffchat.use.cmd | contains 1 aliases | /staffmode |
-| staffchat.use.view | contains 0 aliases | nothing |
-| freeze.use.cmd | contains 0 aliases | nothing |
-| pinfo.use.cmd | contains 1 aliases | /playerinfo |
+| staffmode.staff.cmd | contains 3 aliases | /mod, /sm & /staffmode |
+| staffmode.chat.cmd | contains 1 aliases | /staffchat |
+| staffmode.freeze.cmd | contains 0 aliases | nothing |
+| staffmode.pinfo.cmd | contains 1 aliases | /playerinfo |
+| staffmode.join | contains 0 aliases | nothing |
 
 # Support
 
-Join discord server, it belongs to my community dedicated to pocketmine, here you can ask your doubts, questions or anything that helps the plugin support, link: [discordserver](https://discord.gg/yMPxfpUZWM).
+Join discord server, it belongs to my community dedicated to pocketmine, here you can ask your doubts, questions or anything that helps the plugin support, link: [discord](https://discord.gg/yMPxfpUZWM).
