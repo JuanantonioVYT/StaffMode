@@ -5,20 +5,18 @@ version: 1.0.0
 author: iKurth
 website: https://github.com/iKurth
 permissions:
- staff.use.join:
-  description: Always broadcast message to join
- staffmode.use.cmd:
+ staffmode.staff.cmd:
+  default: op
   description: Always use this command
+ staffmode.pinfo.cmd:
   default: op
- staffchat.use.cmd:
   description: Always use this command
+ staffmode.freeze.cmd:
   default: op
- staffchat.use.view:
-  description: Always view private messages
-  default: op
- freeze.use.cmd:
   description: Always use this command
+ staffmode.chat.cmd:
   default: op
- pinfo.use.cmd:
   description: Always use this command
+ staffmode.join:
   default: op
+  description: Always broadcast join and quit message

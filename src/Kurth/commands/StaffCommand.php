@@ -17,7 +17,7 @@ class StaffCommand extends Command {
 
     public function __construct(StaffMode $plugin) {
         parent::__construct("staff", "toggle staffmode on or off");
-        parent::setPermission("staffmode.use.cmd");
+        parent::setPermission("staffmode.staff.cmd");
         parent::setAliases(["mod", "staffmode", "sm"]);
         $this->plugin = $plugin;
     }
@@ -28,7 +28,7 @@ class StaffCommand extends Command {
             return;
         }
 
-        if (!$sender->hasPermission("staffmode.use.cmd")) {
+        if (!$sender->hasPermission("staffmode.staff.cmd")) {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7You need permissions to access the options of this command"));
             return;
         }

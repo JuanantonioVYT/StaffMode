@@ -40,10 +40,6 @@ class StaffMode extends PluginBase implements Listener {
     }
 
     public function onEnable() : void {
-        $logger = $this->getLogger();
-        $logger->notice("StaffMode for PocketMine-API 4 make by iKurth");
-        $logger->notice("Download in: https://github.com/iKurth/StaffMode");
-        $logger->notice("Subscribe to Kurth in YouTube");
 
         $plugin = $this->getServer()->getPluginManager();
         $plugin->registerEvents($this, $this);
@@ -52,10 +48,10 @@ class StaffMode extends PluginBase implements Listener {
         $plugin->registerEvents(new ItemListener($this), $this);
 
         $command = $this->getServer()->getCommandMap();
-        $command->register("staff", new StaffCommand($this));
-        $command->register("sc", new ChatCommand($this));
-        $command->register("freeze", new FreezeCommand($this));
-        $command->register("pinfo", new PInfoCommand($this));
+        $command->register("StaffMode", new StaffCommand($this));
+        $command->register("StaffMode", new ChatCommand($this));
+        $command->register("StaffMode", new FreezeCommand($this));
+        $command->register("StaffMode", new PInfoCommand($this));
     }
 
     public static function getKitManager() : KitManager {

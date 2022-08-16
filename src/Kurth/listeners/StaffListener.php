@@ -36,7 +36,7 @@ class StaffListener implements Listener {
         $player = $event->getPlayer();
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
         foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
-            if ($players->hasPermission("staff.use.join")) {
+            if ($players->hasPermission("staffmode.join")) {
                 $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-join"))));
             }
         }
@@ -47,7 +47,7 @@ class StaffListener implements Listener {
         $player = $event->getPlayer();
         $messages = new Config(StaffMode::getInstance()->getDataFolder()."messages.yml", Config::YAML);
         foreach (StaffMode::getInstance()->getServer()->getOnlinePlayers() as $players) {
-            if ($players->hasPermission("staff.use.join")) {
+            if ($players->hasPermission("staffmode.join")) {
                 $players->sendMessage(TextFormat::colorize(str_replace(["{player}"], [$player->getName()], $messages->get("staff-quit"))));
             }
         }

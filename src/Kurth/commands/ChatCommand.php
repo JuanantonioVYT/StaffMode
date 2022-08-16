@@ -16,7 +16,7 @@ class ChatCommand extends Command {
 
     public function __construct(StaffMode $plugin) {
         parent::__construct("sc", "send private messages to all connected staff");
-        parent::setPermission("staffchat.use.cmd");
+        parent::setPermission("staffmode.chat.cmd");
         parent::setAliases(["staffchat"]);
         $this->plugin = $plugin;
     }
@@ -27,7 +27,7 @@ class ChatCommand extends Command {
             return;
         }
 
-        if (!$sender->hasPermission("staffchat.use.cmd")) {
+        if (!$sender->hasPermission("staffmode.chat.cmd")) {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7You need permissions to access the options of this command"));
             return;
         }

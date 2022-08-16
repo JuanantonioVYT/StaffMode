@@ -17,7 +17,7 @@ class PInfoCommand extends Command {
 
     public function __construct(StaffMode $plugin) {
         parent::__construct("pinfo", "see the information of connected players");
-        parent::setPermission("pinfo.use.cmd");
+        parent::setPermission("staffmode.pinfo.cmd");
         parent::setAliases(["playerinfo"]);
         $this->plugin = $plugin;
     }
@@ -28,7 +28,7 @@ class PInfoCommand extends Command {
             return;
         }
 
-        if (!$sender->hasPermission("pinfo.use.cmd")) {
+        if (!$sender->hasPermission("staffmode.pinfo.cmd")) {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7You need permissions to access the options of this command"));
             return;
         }

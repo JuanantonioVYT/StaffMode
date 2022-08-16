@@ -16,7 +16,7 @@ class FreezeCommand extends Command {
 
     public function __construct(StaffMode $plugin) {
         parent::__construct("freeze", "freeze suspected cheating players");
-        parent::setPermission("freeze.use.cmd");
+        parent::setPermission("staffmode.freeze.cmd");
         $this->plugin = $plugin;
     }
 
@@ -26,7 +26,7 @@ class FreezeCommand extends Command {
             return;
         }
 
-        if (!$sender->hasPermission("freeze.use.cmd")) {
+        if (!$sender->hasPermission("staffmode.freeze.cmd")) {
             $sender->sendMessage(TextFormat::colorize("&c[StaffMode] &7You need permissions to access the options of this command"));
             return;
         }
